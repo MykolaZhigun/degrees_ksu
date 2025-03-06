@@ -107,7 +107,7 @@ const AirQualityDashboard = () => {
                                humidity={historicalData[historicalData.length - 1].humidity}
                                airQuality={historicalData[historicalData.length - 1].airQuality}/>
 
-            <Title level={2} style={{textAlign: "center"}}>Інформація по датчикам</Title>
+            <Title level={2} style={{textAlign: "center"}}>інформація щодо відключених датчиків</Title>
             <div style={{display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", marginTop: "20px"}}>
                 <Sensors color="grey" numbers={sensorsCount} />
                 <Sensors color="green" numbers={workingSensorsCount} />

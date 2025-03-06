@@ -12,6 +12,7 @@ const SensorsTable = () => {
                 <thead>
                 <tr>
                     <th className="header">Аудиторія</th>
+                    <th className="header">Причина відключення</th>
                     <th className="header">Температура</th>
                     <th className="header">Вологість</th>
                     <th className="header">Якість повітря</th>
@@ -20,9 +21,14 @@ const SensorsTable = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {nonWorkingSensors.map((sensor, index) => (
-                    <tr key={index} className="row">
+                {nonWorkingSensors.map(sensor => (
+                    <tr key={sensor.id} className="row">
                         <td className="cell">{sensor.name}</td>
+                        <td className="cell">
+                            <div className="icon-text">
+                                <span>{sensor.reason}</span>
+                            </div>
+                        </td>
                         <td className="cell">
                             <div className="icon-text">
                                 <Thermometer size={20} color="#fa541c" />
