@@ -1,0 +1,12 @@
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
