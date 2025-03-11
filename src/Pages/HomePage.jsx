@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Headers from "../components/Headers";
 import { TemperatureGraphics, HumidityGraphics, AirQualityGraphics } from "../components/Graphics";
 import AttentionCabinets from "../components/AttentionCabinets";
@@ -7,6 +7,7 @@ import { Thermometer, Droplet, Wind } from "lucide-react";
 import Sensors from "../components/Sensors";
 import SensorsTable from "../components/SensorsTable";
 import sensorsInfo from "../info/SensorsInfo";
+import historicalData from "../info/HistoricalData";
 
 const workingSensors = sensorsInfo.filter(sensor => sensor.isWorking);
 const nonWorkingSensors = sensorsInfo.filter(sensor => !sensor.isWorking);
@@ -16,31 +17,7 @@ const sensorsCount = sensorsInfo.length;
 
 const { Title, Text } = Typography;
 
-const generateRandomData = () => {
-    const now = new Date();
-    const data = [];
-    for (let i = 6; i >= 0; i--) {
-        const time = new Date(now.getTime() - i * 60 * 60 * 1000);
-        data.push({
-            time: `${time.getHours().toString().padStart(2, '0')}:00`,
-            temperature: (Math.random() * 10 + 15).toFixed(1),
-            humidity: Math.floor(Math.random() * 40 + 30),
-            airQuality: Math.floor(Math.random() * 40 + 60)
-        });
-    }
-    return data;
-};
-
 const HomePage = () => {
-    const [historicalData, setHistoricalData] = useState(generateRandomData());
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setHistoricalData(generateRandomData());
-        }, 60000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <div style={{ background: "#f0f2f5", minHeight: "100vh" }}>
             <Headers
