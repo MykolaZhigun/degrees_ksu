@@ -1,30 +1,31 @@
 import { Thermometer, Droplet, Wind } from "lucide-react";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Headers({ temperature, humidity, airQuality }) {
     return (
         <div style={{ background: '#333', padding: '15px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <nav style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <a href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', transition: 'color 0.3s', cursor: 'pointer' }}
-                   onMouseEnter={(e) => e.target.style.color = '#f0a500'}
-                   onMouseLeave={(e) => e.target.style.color = 'white'}>
+                <NavLink to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', transition: 'color 0.3s', cursor: 'pointer' }}
+                         onMouseEnter={(e) => e.target.style.color = '#f0a500'}
+                         onMouseLeave={(e) => e.target.style.color = 'white'}>
                     Головна
-                </a>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
-                   onMouseEnter={(e) => e.target.style.color = '#f0a500'}
-                   onMouseLeave={(e) => e.target.style.color = 'white'}>
+                </NavLink>
+                <NavLink to="/cabinets" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
+                         onMouseEnter={(e) => e.target.style.color = '#f0a500'}
+                         onMouseLeave={(e) => e.target.style.color = 'white'}>
                     Навчальні
-                </a>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
-                   onMouseEnter={(e) => e.target.style.color = '#f0a500'}
-                   onMouseLeave={(e) => e.target.style.color = 'white'}>
+                </NavLink>
+                <NavLink to="/iot" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
+                         onMouseEnter={(e) => e.target.style.color = '#f0a500'}
+                         onMouseLeave={(e) => e.target.style.color = 'white'}>
                     IoT
-                </a>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
-                   onMouseEnter={(e) => e.target.style.color = '#f0a500'}
-                   onMouseLeave={(e) => e.target.style.color = 'white'}>
+                </NavLink>
+                <NavLink to="/security" style={{ color: 'white', textDecoration: 'none', fontSize: '18px', transition: 'color 0.3s', cursor: 'pointer' }}
+                         onMouseEnter={(e) => e.target.style.color = '#f0a500'}
+                         onMouseLeave={(e) => e.target.style.color = 'white'}>
                     Безпека
-                </a>
+                </NavLink>
             </nav>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', color: 'white', gap: '5px' }}>
@@ -41,7 +42,7 @@ function Headers({ temperature, humidity, airQuality }) {
                 </div>
             </div>
         </div>
-);
+    );
 }
 
 export default Headers;
