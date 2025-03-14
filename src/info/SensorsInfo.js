@@ -83,7 +83,7 @@ const sensorsInfo = [
         time: getRandomTime(),
     },
     {
-        name: "1488",
+        name: "1489",
         airQuality: Math.floor(Math.random() * 60) + 40,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
