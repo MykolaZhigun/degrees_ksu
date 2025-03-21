@@ -3,6 +3,7 @@ import React from "react";
 import historicalData from "../info/HistoricalData";
 import Cabinets from "../components/Cabinets";
 import sensorsInfo from "../info/SensorsInfo";
+import '../style/cabinets.css';
 
 function LearningCabinetsPage() {
     return (
@@ -13,15 +14,7 @@ function LearningCabinetsPage() {
                 airQuality={historicalData[historicalData.length - 1].airQuality}
             />
 
-            <div style={{
-                marginTop: "20px",
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "20px",
-                maxWidth: "960px",
-                marginLeft: "auto",
-                marginRight: "auto"
-            }}>
+            <div className="page-container">
                 {sensorsInfo.map(sensor => (
                     <Cabinets
                         key={sensor.name}

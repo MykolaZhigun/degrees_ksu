@@ -1,42 +1,46 @@
 import { Card, Typography } from "antd";
 import { Droplet, Thermometer, Wind } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import '../style/cabinets.css';
 
 const { Title, Text } = Typography;
 
 function Cabinets({ name, temperature, humidity, airQuality }) {
+    const [isFormVisible, setFormVisible] = useState(false);
+
+    const toggleFormVisibility = () => {
+        setFormVisible(!isFormVisible);
+    };
+
     return (
-        <div style={{ flex: "0 0 auto" }}>
-            <Card style={{
-                width: "312px",
-                borderRadius: "10px",
-                textAlign: "center",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-                border: "1px solid #d9d9d9",
-                padding: "10px"  // Reduced padding to decrease height
-            }}>
-                <Title level={4} style={{ marginBottom: "5px" }}>{name} Аудиторія</Title>
-                <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                    gap: "5px",
-                    justifyItems: "center",
-                    alignItems: "center"
-                }}>
-                    <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="card-container">
+            <Card className="card">
+                <Title level={4} className="card-title">{name} Аудиторія</Title>
+                <div className="card-content">
+                    <div className="card-item">
                         <Thermometer size={22} color="#fa541c" />
-                        <Text style={{ marginLeft: "5px" }}>{temperature}°C</Text>
+                        <Text className="card-item-text">{temperature}°C</Text>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div className="card-item">
                         <Droplet size={22} color="#1890ff" />
-                        <Text style={{ marginLeft: "5px" }}>{humidity}%</Text>
+                        <Text className="card-item-text">{humidity}%</Text>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div className="card-item">
                         <Wind size={22} color="#52c41a" />
-                        <Text style={{ marginLeft: "5px" }}>{airQuality}%</Text>
+                        <Text className="card-item-text">{airQuality}%</Text>
                     </div>
                 </div>
+                <button className="down-arrow-button" onClick={toggleFormVisibility}>
+                    {isFormVisible ? '▲' : '▼'}
+                </button>
             </Card>
+            {isFormVisible && (
+                <div className="additional-div">
+                    <form className="hidden-form">
+                        Soon
+                    </form>
+                </div>
+            )}
         </div>
     );
 }
