@@ -15,15 +15,7 @@ function LearningCabinetsPage() {
             />
 
             <div className="page-container">
-                {sensorsInfo.map(sensor => (
-                    <Cabinets
-                        key={sensor.name}
-                        name={sensor.name}
-                        temperature={sensor.temperature}
-                        humidity={sensor.humidity}
-                        airQuality={sensor.airQuality}
-                    />
-                ))}
+                <Cabinets sensors={sensorsInfo} />
             </div>
         </>
     );

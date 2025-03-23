@@ -1,104 +1,108 @@
-.card-container {
-    flex: 0 0 auto;
-    position: relative;
-    margin-bottom: 30px;
+.dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.card {
-    width: 320px;
-    height: 160px;
-    border-radius: 12px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 12px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.card-content {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2px;
-}
-
-.card-item {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.card-item-text {
-    margin-left: 6px;
-    font-size: 14px;
-    color: #555;
-}
-
-.page-container {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: auto;
 }
 
-.additional-div {
-    height: auto;
-    background-color: #f0f0f0;
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 70%;
+.sensor-buttons {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
-.down-arrow-button {
-    background-color: white;
-    border: none;
-    color: black;
-    font-size: 16px;
-    border-radius: 36%;
+.sensor-buttons button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border: 1px solid #d9d9d9;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    width: 22px;
-    height: 17px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    position: absolute;
-    bottom: 3px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.hidden-form {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+.sensor-buttons button.selected {
+    border-color: #1890ff;
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+
+.graphs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1100px;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    align-items: flex-start;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 220px;
+    max-width: 360px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.sensor-title{
+    text-align: center;
+}
+
+.sensor-details-horizontal {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sensor-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sensor-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.graphs-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.graph-card {
+    min-width: 250px;
+    max-width: 270px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+}
+
+.no-data {
+    font-size: 16px;
+    font-weight: bold;
+    color: #999999;
 }

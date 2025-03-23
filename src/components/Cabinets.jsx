@@ -1,46 +1,64 @@
-import { Card, Typography } from "antd";
-import { Droplet, Thermometer, Wind } from "lucide-react";
 import React, { useState } from "react";
-import '../style/cabinets.css';
+import sensorsInfo from "../info/SensorsInfo";
+import { Button, Card, Typography } from "antd";
+import { Droplet, Thermometer, Wind } from "lucide-react";
+import "../style/cabinets.css";
 
 const { Title, Text } = Typography;
 
-function Cabinets({ name, temperature, humidity, airQuality }) {
-    const [isFormVisible, setFormVisible] = useState(false);
+function GraphCard({ title, data }) {
+    return (
+        <Card className="graph-card">
+            <Title level={4}>{title}</Title>
+            {data ? <div>{/* Тут будет график */}</div> : <Text className="no-data">NO DATA</Text>}
+        </Card>
+    );
+}
 
-    const toggleFormVisibility = () => {
-        setFormVisible(!isFormVisible);
-    };
+function Cabinets() {
+    const [selectedSensor, setSelectedSensor] = useState(sensorsInfo[0]); // Дефолтный сенсор
 
     return (
-        <div className="card-container">
-            <Card className="card">
-                <Title level={4} className="card-title">{name} Аудиторія</Title>
-                <div className="card-content">
-                    <div className="card-item">
-                        <Thermometer size={22} color="#fa541c" />
-                        <Text className="card-item-text">{temperature}°C</Text>
+        <div className="dashboard-container">
+            <div className="sensor-buttons">
+                {sensorsInfo.map(sensor => (
+                    <Button
+                        key={sensor.name}
+                        onClick={() => setSelectedSensor(sensor)}
+                        className={`sensor-button ${selectedSensor?.name === sensor.name ? "selected" : ""}`}
+                    >
+                        {sensor.name} Аудитория
+                    </Button>
+                ))}
+            </div>
+
+            <div className="graphs-container">
+                <Card className="sensor-card">
+                    <Title level={5} className="sensor-title">
+                        {selectedSensor.name} Аудитория
+                    </Title>
+                    <div className="sensor-details-horizontal">
+                        <div className="sensor-item">
+                            <Thermometer size={16} color="#ff4d4f" />
+                            <Text className="sensor-text">{selectedSensor.temperature}°C</Text>
+                        </div>
+                        <div className="sensor-item">
+                            <Droplet size={16} color="#40a9ff" />
+                            <Text className="sensor-text">{selectedSensor.humidity}%</Text>
+                        </div>
+                        <div className="sensor-item">
+                            <Wind size={16} color="#73d13d" />
+                            <Text className="sensor-text">{selectedSensor.airQuality}%</Text>
+                        </div>
                     </div>
-                    <div className="card-item">
-                        <Droplet size={22} color="#1890ff" />
-                        <Text className="card-item-text">{humidity}%</Text>
-                    </div>
-                    <div className="card-item">
-                        <Wind size={22} color="#52c41a" />
-                        <Text className="card-item-text">{airQuality}%</Text>
-                    </div>
+                </Card>
+
+                <div className="graphs-section">
+                    <GraphCard title="Температура" data={selectedSensor.temperatureData} />
+                    <GraphCard title="Влажність" data={selectedSensor.humidityData} />
+                    <GraphCard title="Якість повітря" data={selectedSensor.airQualityData} />
                 </div>
-                <button className="down-arrow-button" onClick={toggleFormVisibility}>
-                    {isFormVisible ? '▲' : '▼'}
-                </button>
-            </Card>
-            {isFormVisible && (
-                <div className="additional-div">
-                    <form className="hidden-form">
-                        Soon
-                    </form>
-                </div>
-            )}
+            </div>
         </div>
     );
 }
