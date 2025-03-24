@@ -6,27 +6,27 @@
 
 .table {
     width: 90%;
-    border-collapse: collapse;
     max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-collapse: collapse;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     background-color: #fff;
 }
 
 .header {
     padding: 10px;
-    font-weight: bold;
     text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
     background-color: #f7f7f7;
     border-bottom: 2px solid #ddd;
-    font-size: 16px;
-    color: #333;
 }
 
 .row {
-    border-bottom: 1px solid #ddd;
     text-align: center;
+    border-bottom: 1px solid #ddd;
     transition: background-color 0.3s;
 }
 
@@ -36,11 +36,11 @@
 
 .cell {
     padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
     vertical-align: middle;
     font-size: 14px;
     color: #555;
+    border: 1px solid #ddd;
 }
 
 .highlight-cell {
@@ -101,4 +101,14 @@
     font-size: 14px;
     font-weight: bold;
     width: 100%;
+}
+
+.custom-card {
+    border: none;
+    padding: 20px;
+}
+
+.ant-card .ant-card-body {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    padding: 5px;
 }

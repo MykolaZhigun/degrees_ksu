@@ -3,20 +3,12 @@ import sensorsInfo from "../info/SensorsInfo";
 import { Button, Card, Typography } from "antd";
 import { Droplet, Thermometer, Wind } from "lucide-react";
 import "../style/cabinets.css";
+import SensorsGraphics from "./SensorsGraphics";
 
 const { Title, Text } = Typography;
 
-function GraphCard({ title, data }) {
-    return (
-        <Card className="graph-card">
-            <Title level={4}>{title}</Title>
-            {data ? <div>{/* Тут будет график */}</div> : <Text className="no-data">NO DATA</Text>}
-        </Card>
-    );
-}
-
 function Cabinets() {
-    const [selectedSensor, setSelectedSensor] = useState(sensorsInfo[0]); // Дефолтный сенсор
+    const [selectedSensor, setSelectedSensor] = useState(sensorsInfo[0]); // Default sensor
 
     return (
         <div className="dashboard-container">
@@ -33,7 +25,7 @@ function Cabinets() {
             </div>
 
             <div className="graphs-container">
-                <Card className="sensor-card">
+                <Card className="sensor-card" bordered={false}>
                     <Title level={5} className="sensor-title">
                         {selectedSensor.name} Аудитория
                     </Title>
@@ -52,12 +44,7 @@ function Cabinets() {
                         </div>
                     </div>
                 </Card>
-
-                <div className="graphs-section">
-                    <GraphCard title="Температура" data={selectedSensor.temperatureData} />
-                    <GraphCard title="Влажність" data={selectedSensor.humidityData} />
-                    <GraphCard title="Якість повітря" data={selectedSensor.airQualityData} />
-                </div>
+                <SensorsGraphics />
             </div>
         </div>
     );
