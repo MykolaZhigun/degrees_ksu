@@ -41,7 +41,7 @@ const getRandomDate = (isWorking) => {
         randomDate = new Date(now.getTime() - pastDays * 24 * 60 * 60 * 1000);
     } else {
         do {
-            const year = now.getFullYear() - Math.floor(Math.random() * 5);
+            const year = now.getFullYear() - Math.floor(Math.random() * 1);
             const month = Math.floor(Math.random() * 12);
             const day = Math.floor(Math.random() * 28) + 1;
             randomDate = new Date(year, month, day);
