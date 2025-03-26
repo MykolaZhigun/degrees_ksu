@@ -17,7 +17,7 @@ function SensorsTableIoT(){
                     <th className="header">Температура</th>
                     <th className="header">Вологість</th>
                     <th className="header">Якість повітря</th>
-                    <th className="header">Час останоьоі передачі даних</th>
+                    <th className="header">Час останньої передачі даних</th>
                 </tr>
                 </thead>
                 <tbody>
