@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Thermometer, Droplet, Wind, AlertTriangle, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { Thermometer, Droplet, Wind, AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
 import sensorsInfo from "../info/SensorsInfo";
 import '../style/problems.css';
 

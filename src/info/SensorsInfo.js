@@ -32,13 +32,86 @@ const calculateOffTime = (sensorTime) => {
     return `${offHours} год ${offMinutes} хв`;
 };
 
+const getRandomDate = (isWorking) => {
+    const now = new Date();
+    let randomDate;
+
+    if (isWorking) {
+        const pastDays = Math.floor(Math.random() * 6) + 1;
+        randomDate = new Date(now.getTime() - pastDays * 24 * 60 * 60 * 1000);
+    } else {
+        do {
+            const year = now.getFullYear() - Math.floor(Math.random() * 5);
+            const month = Math.floor(Math.random() * 12);
+            const day = Math.floor(Math.random() * 28) + 1;
+            randomDate = new Date(year, month, day);
+        } while (randomDate >= now);
+    }
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return randomDate.toLocaleDateString('uk-UA', options);
+};
 const sensorsInfo = [
-    { name: "256", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: true, reason: "", time: getRandomTime() },
-    { name: "444", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: true, reason: "", time: getRandomTime() },
-    { name: "7", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: false, reason: getRandomReason(), time: getRandomTime() },
-    { name: "29", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: true, reason: "", time: getRandomTime() },
-    { name: "26", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: false, reason: getRandomReason(), time: getRandomTime() },
-    { name: "36", airQuality: Math.floor(Math.random() * 60) + 40, temperature: (Math.random() * 45).toFixed(1), humidity: Math.floor(Math.random() * 100), isWorking: false, reason: getRandomReason(), time: getRandomTime() }
+    {
+        name: "256",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: true,
+        reason: "",
+        time: getRandomTime(),
+        dateTime: getRandomDate(true)
+    },
+    {
+        name: "444",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: true,
+        reason: "",
+        time: getRandomTime(),
+        dateTime: getRandomDate(true)
+    },
+    {
+        name: "7",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    },
+    {
+        name: "29",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: true,
+        reason: "",
+        time: getRandomTime(),
+        dateTime: getRandomDate(true)
+    },
+    {
+        name: "26",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    },
+    {
+        name: "36",
+        airQuality: Math.floor(Math.random() * 60) + 40,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    }
 ];
 
 sensorsInfo.forEach(sensor => {
