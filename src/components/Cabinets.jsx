@@ -40,7 +40,7 @@ function Cabinets() {
                         </div>
                         <div className="sensor-item">
                             <Wind size={16} color="#73d13d" />
-                            <Text className="sensor-text">{selectedSensor.airQuality}%</Text>
+                            <Text className="sensor-text">{selectedSensor.airQuality} ppm</Text>
                         </div>
                     </div>
                 </Card>

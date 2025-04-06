@@ -38,7 +38,7 @@ function Headers({ temperature, humidity, airQuality }) {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', color: 'white', gap: '5px' }}>
                     <Wind size={22} color="#52c41a" />
-                    <span>{airQuality}%</span>
+                    <span>{airQuality} ppm</span>
                 </div>
             </div>
         </div>

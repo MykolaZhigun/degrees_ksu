@@ -7,7 +7,7 @@ const generateRandomData = () => {
             time: `${time.getHours().toString().padStart(2, '0')}:00`,
             temperature: (Math.random() * 10 + 15).toFixed(1),
             humidity: Math.floor(Math.random() * 40 + 30),
-            airQuality: Math.floor(Math.random() * 40 + 60)
+            airQuality: Math.floor(Math.random() * 1101) + 400
         });
     }
     return data;

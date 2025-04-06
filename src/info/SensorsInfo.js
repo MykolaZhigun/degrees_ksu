@@ -54,7 +54,7 @@ const getRandomDate = (isWorking) => {
 const sensorsInfo = [
     {
         name: "256",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: true,
@@ -64,7 +64,7 @@ const sensorsInfo = [
     },
     {
         name: "444",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: true,
@@ -74,7 +74,7 @@ const sensorsInfo = [
     },
     {
         name: "7",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: false,
@@ -84,7 +84,7 @@ const sensorsInfo = [
     },
     {
         name: "29",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: true,
@@ -94,7 +94,7 @@ const sensorsInfo = [
     },
     {
         name: "26",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: false,
@@ -104,7 +104,7 @@ const sensorsInfo = [
     },
     {
         name: "36",
-        airQuality: Math.floor(Math.random() * 60) + 40,
+        airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * 45).toFixed(1),
         humidity: Math.floor(Math.random() * 100),
         isWorking: false,

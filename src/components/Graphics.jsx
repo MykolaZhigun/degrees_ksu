@@ -3,6 +3,16 @@ import { Card, Typography } from "antd";
 
 const { Text } = Typography;
 
+const generateRandomData = () => {
+    return Array.from({ length: 10 }).map(() => ({
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * 45).toFixed(1),
+        humidity: Math.floor(Math.random() * 100)
+    }));
+};
+
+const historicalData = generateRandomData();
+
 function GraphicsBase({ data, dataKey, label, unit, color, defaultValue }) {
     const maxX = data.length - 1;
     const maxY = Math.max(...data.map(d => d[dataKey])) || 100;
@@ -103,5 +113,7 @@ export const HumidityGraphics = ({ data }) => (
 );
 
 export const AirQualityGraphics = ({ data }) => (
-    <GraphicsBase data={data} dataKey="airQuality" label="Якість Повітря" unit="%" color="#52c41a" defaultValue={68} />
+    <GraphicsBase data={data} dataKey="airQuality" label="Якість Повітря" unit="ppm" color="#52c41a" defaultValue={400} />
 );
+
+export default historicalData;

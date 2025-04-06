@@ -15,12 +15,12 @@ const AttentionCabinets = () => {
             if (sensor.humidity < 25 || sensor.humidity > 80) {
                 issues.push({ text: sensor.humidity < 30 ? "Маленька вологість (меньше 30%)" : "Велика вологість (більше 70%)", icon: <Droplet size={18} color="#1890ff" /> });
             }
-            if (sensor.airQuality < 50) {
-                issues.push({ text: "Погана якість повітря (меньше 70%)", icon: <Wind size={18} color="#52c41a" /> });
+            if (sensor.airQuality >= 1000) {
+                issues.push({ text: "Погана якість повітря", icon: <Wind size={18} color="#52c41a" /> });
             }
-            return { ...sensor, issues }; // Ensure time is included
+            return { ...sensor, issues };
         })
-        .filter(sensor => sensor.issues.length > 0); // Filter out rooms with no issues
+        .filter(sensor => sensor.issues.length > 0);
 
     const togglePanel = (index) => {
         setOpenPanels(prevState => ({ ...prevState, [index]: !prevState[index] }));
@@ -63,10 +63,10 @@ const AttentionCabinets = () => {
                                     <span>{room.humidity}%</span>
                                 </div>
                             </td>
-                            <td className={room.airQuality < 50 ? "highlight-cell" : "cell"}>
+                            <td className={room.airQuality >= 1000 ? "highlight-cell" : "cell"}>
                                 <div className="icon-text">
                                     <Wind size={20} color="#52c41a" />
-                                    <span>{room.airQuality}%</span>
+                                    <span>{room.airQuality} ppm</span>
                                 </div>
                             </td>
                             <td className="cell">{room.time}</td>

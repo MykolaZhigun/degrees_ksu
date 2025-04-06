@@ -18,12 +18,15 @@ const sensorsCount = sensorsInfo.length;
 const { Title, Text } = Typography;
 
 const HomePage = () => {
+    const airQuality = historicalData[historicalData.length - 1].airQuality;
+    const airQualityPercent = ((airQuality - 400) / 1100) * 100;
+
     return (
         <div style={{ background: "#f0f2f5", minHeight: "100vh" }}>
             <Headers
                 temperature={historicalData[historicalData.length - 1].temperature}
                 humidity={historicalData[historicalData.length - 1].humidity}
-                airQuality={historicalData[historicalData.length - 1].airQuality}
+                airQuality={airQuality}
             />
 
             <Title level={2} style={{ textAlign: "center" }}>Моніторинг Повітря в Кабінеті</Title>
@@ -63,7 +66,11 @@ const HomePage = () => {
                     }}>
                         <Wind size={32} color="#52c41a" />
                         <Title level={4}>Якість Повітря</Title>
-                        <Progress percent={historicalData[historicalData.length - 1].airQuality} status="active" />
+                        <Progress
+                            percent={airQualityPercent}
+                            status="active"
+                            format={percent => `${airQuality} ppm`}
+                        />
                     </Card>
                 </Col>
             </Row>
@@ -77,7 +84,7 @@ const HomePage = () => {
             <Title level={2} style={{ textAlign: "center" }}>Аудиторії які потребують уваги</Title>
             <AttentionCabinets temperature={historicalData[historicalData.length - 1].temperature}
                                humidity={historicalData[historicalData.length - 1].humidity}
-                               airQuality={historicalData[historicalData.length - 1].airQuality} />
+                               airQuality={airQuality} />
 
             <Title level={2} style={{ textAlign: "center" }}>інформація щодо відключених датчиків</Title>
             <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", marginTop: "20px" }}>
