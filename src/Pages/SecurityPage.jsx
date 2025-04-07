@@ -1,6 +1,7 @@
 import Headers from "../components/Headers";
 import historicalData from "../info/HistoricalData";
 import React from "react";
+import "../style/securityStyle.css"
 
 function SecurityPage() {
   return (
@@ -10,7 +11,7 @@ function SecurityPage() {
             humidity={historicalData[historicalData.length - 1].humidity}
             airQuality={historicalData[historicalData.length - 1].airQuality}
         />
-        <h1>Security Page</h1>
+        <h1 className={"soon-txt"}>Сторінка в розробці...</h1>
     </div>
   );
 }

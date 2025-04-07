@@ -7,6 +7,7 @@ import { Thermometer, Droplet, Wind } from "lucide-react";
 import Sensors from "../components/Sensors";
 import SensorsTable from "../components/SensorsTable";
 import sensorsInfo from "../info/SensorsInfo";
+import '../style/problems.css';
 import historicalData from "../info/HistoricalData";
 
 const workingSensors = sensorsInfo.filter(sensor => sensor.isWorking);
@@ -29,7 +30,7 @@ const HomePage = () => {
                 airQuality={airQuality}
             />
 
-            <Title level={2} style={{ textAlign: "center" }}>Моніторинг Повітря в Кабінеті</Title>
+            <Title level={2} style={{ textAlign: "center" }}>Середні показники</Title>
             <Row gutter={[16, 16]} justify="center">
                 <Col xs={24} sm={12} md={8} style={{ width: "300px", flex: "none", marginRight: "35px" }}>
                     <Card style={{
@@ -70,6 +71,7 @@ const HomePage = () => {
                             percent={airQualityPercent}
                             status="active"
                             format={percent => `${airQuality} ppm`}
+                            strokeColor={airQuality > 1000 ? 'red' : 'green'}
                         />
                     </Card>
                 </Col>
@@ -87,7 +89,7 @@ const HomePage = () => {
                                airQuality={airQuality} />
 
             <Title level={2} style={{ textAlign: "center" }}>інформація щодо відключених датчиків</Title>
-            <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", marginTop: "20px" }}>
+            <div className={"sensors-style"} style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", marginTop: "20px" }}>
                 <Sensors color="grey" numbers={sensorsCount} />
                 <Sensors color="green" numbers={workingSensorsCount} />
                 <Sensors color="red" numbers={nonWorkingSensorsCount} showTable={true} />

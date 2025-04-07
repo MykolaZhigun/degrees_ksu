@@ -9,11 +9,11 @@ const AttentionCabinets = () => {
     const problematicRooms = sensorsInfo
         .map(sensor => {
             const issues = [];
-            if (sensor.temperature < 10 || sensor.temperature > 35) {
-                issues.push({ text: sensor.temperature < 10 ? "Маленька температура (меньше 10°C)" : "Висока температура (більше 35°C)", icon: <Thermometer size={18} color="#fa541c" /> });
+            if (sensor.temperature < 10 || sensor.temperature > 30) {
+                issues.push({ text: sensor.temperature < 10 ? "Маленька температура (меньше 10°C)" : "Висока температура (більше 30°C)", icon: <Thermometer size={18} color="#fa541c" /> });
             }
-            if (sensor.humidity < 25 || sensor.humidity > 80) {
-                issues.push({ text: sensor.humidity < 30 ? "Маленька вологість (меньше 30%)" : "Велика вологість (більше 70%)", icon: <Droplet size={18} color="#1890ff" /> });
+            if (sensor.humidity > 60) {
+                issues.push({text: "Велика вологість (більше 60%)", icon: <Droplet size={18} color="#1890ff" /> });
             }
             if (sensor.airQuality >= 1000) {
                 issues.push({ text: "Погана якість повітря", icon: <Wind size={18} color="#52c41a" /> });
@@ -57,7 +57,7 @@ const AttentionCabinets = () => {
                                     <span>{room.temperature}°C</span>
                                 </div>
                             </td>
-                            <td className={room.humidity < 25 || room.humidity > 80 ? "highlight-cell" : "cell"}>
+                            <td className={room.humidity > 60 ? "highlight-cell" : "cell"}>
                                 <div className="icon-text">
                                     <Droplet size={20} color="#1890ff" />
                                     <span>{room.humidity}%</span>
