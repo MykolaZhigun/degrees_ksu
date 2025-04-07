@@ -9,8 +9,8 @@ const AttentionCabinets = () => {
     const problematicRooms = sensorsInfo
         .map(sensor => {
             const issues = [];
-            if (sensor.temperature < 10 || sensor.temperature > 30) {
-                issues.push({ text: sensor.temperature < 10 ? "Маленька температура (меньше 10°C)" : "Висока температура (більше 30°C)", icon: <Thermometer size={18} color="#fa541c" /> });
+            if (sensor.temperature < 10 || sensor.temperature >= 30) {
+                issues.push({ text: sensor.temperature < 5 ? "Маленька температура (меньше 10°C)" : "Висока температура (більше 30°C)", icon: <Thermometer size={18} color="#fa541c" /> });
             }
             if (sensor.humidity > 60) {
                 issues.push({text: "Велика вологість (більше 60%)", icon: <Droplet size={18} color="#1890ff" /> });
@@ -51,7 +51,7 @@ const AttentionCabinets = () => {
                                     <span>Проблема</span>
                                 </div>
                             </td>
-                            <td className={room.temperature < 10 || room.temperature > 35 ? "highlight-cell" : "cell"}>
+                            <td className={room.temperature < 10 || room.temperature >= 30 ? "highlight-cell" : "cell"}>
                                 <div className="icon-text">
                                     <Thermometer size={20} color="#fa541c" />
                                     <span>{room.temperature}°C</span>

@@ -88,7 +88,7 @@ const HomePage = () => {
                                humidity={historicalData[historicalData.length - 1].humidity}
                                airQuality={airQuality} />
 
-            <Title level={2} style={{ textAlign: "center" }}>інформація щодо відключених датчиків</Title>
+            <Title level={2} style={{ textAlign: "center" }}>Інформація щодо відключених датчиків</Title>
             <div className={"sensors-style"} style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", marginTop: "20px" }}>
                 <Sensors color="grey" numbers={sensorsCount} />
                 <Sensors color="green" numbers={workingSensorsCount} />

@@ -53,9 +53,9 @@ const getRandomDate = (isWorking) => {
 };
 const sensorsInfo = [
     {
-        name: "256",
+        name: "1",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
+        temperature: (Math.random() * (35.1)).toFixed(1),
         humidity: Math.floor(Math.random() * 51 + 25),
         isWorking: true,
         reason: "",
@@ -63,49 +63,49 @@ const sensorsInfo = [
         dateTime: getRandomDate(true)
     },
     {
-        name: "444",
+        name: "2",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
+        temperature: (Math.random() * (35.1)).toFixed(1),
         humidity: Math.floor(Math.random() * 51 + 25),
         isWorking: true,
         reason: "",
         time: getRandomTime(),
         dateTime: getRandomDate(true)
+    },
+    {
+        name: "3",
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * (35.1)).toFixed(1),
+        humidity: Math.floor(Math.random() * 51 + 25),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    },
+    {
+        name: "4",
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * (35.1)).toFixed(1),
+        humidity: Math.floor(Math.random() * 51 + 25),
+        isWorking: true,
+        reason: "",
+        time: getRandomTime(),
+        dateTime: getRandomDate(true)
+    },
+    {
+        name: "5",
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * (35.1)).toFixed(1),
+        humidity: Math.floor(Math.random() * 51 + 25),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
     },
     {
         name: "7",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
-        isWorking: false,
-        reason: getRandomReason(),
-        time: getRandomTime(),
-        dateTime: getRandomDate(false)
-    },
-    {
-        name: "29",
-        airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
-        isWorking: true,
-        reason: "",
-        time: getRandomTime(),
-        dateTime: getRandomDate(true)
-    },
-    {
-        name: "26",
-        airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
-        isWorking: false,
-        reason: getRandomReason(),
-        time: getRandomTime(),
-        dateTime: getRandomDate(false)
-    },
-    {
-        name: "36",
-        airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * 45).toFixed(1),
+        temperature: (Math.random() * (35.1)).toFixed(1),
         humidity: Math.floor(Math.random() * 51 + 25),
         isWorking: false,
         reason: getRandomReason(),
