@@ -14,6 +14,23 @@
     background-color: #fff;
 }
 
+.table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: center;
+}
+
 .header {
     padding: 10px;
     text-align: center;

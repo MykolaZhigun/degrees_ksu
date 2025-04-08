@@ -11,13 +11,16 @@ const SensorsTable = () => {
             <table className="table">
                 <thead>
                 <tr>
-                    <th className="header">Аудиторія</th>
-                    <th className="header">Причина відключення</th>
+                    <th className="header" rowSpan={2}>Аудиторія</th>
+                    <th className="header" rowSpan={2}>Причина відключення</th>
+                    <th className="header" colSpan={3}>Останні передані показники</th>
+                    <th className="header" rowSpan={2}>Час</th>
+                    <th className="header" rowSpan={2}>Кількість часу після відключення</th>
+                </tr>
+                <tr>
                     <th className="header">Температура</th>
                     <th className="header">Вологість</th>
                     <th className="header">Якість повітря</th>
-                    <th className="header">Час</th>
-                    <th className="header">Кількість часу після відключення</th>
                 </tr>
                 </thead>
                 <tbody>
