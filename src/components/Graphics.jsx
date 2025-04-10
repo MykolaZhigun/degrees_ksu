@@ -20,8 +20,8 @@ const { Text } = Typography;
 
 function GraphicsBase({ data, dataKey, label, unit, color }) {
     const currentTime = new Date();
-    const timeLabels = Array.from({ length: 7 }).map((_, i) => {
-        const time = new Date(currentTime.getTime() - (5 - i) * 60 * 60 * 1000);
+    const timeLabels = Array.from({ length: 8 }).map((_, i) => {
+        const time = new Date(currentTime.getTime() - (7 - i) * 60 * 60 * 1000);
         return `${time.getHours()}:00`;
     });
 
@@ -30,7 +30,7 @@ function GraphicsBase({ data, dataKey, label, unit, color }) {
         datasets: [
             {
                 label: label,
-                data: data.map((d) => d[dataKey]),
+                data: data.slice(-8).map((d) => d[dataKey]), // Use only the last 8 elements
                 borderColor: color,
                 backgroundColor: `${color}33`,
                 fill: true,

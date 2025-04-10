@@ -1,7 +1,7 @@
 const generateRandomData = () => {
     const now = new Date();
     const data = [];
-    for (let i = 6; i >= 0; i--) {
+    for (let i = 7; i >= 0; i--) {
         const time = new Date(now.getTime() - i * 60 * 60 * 1000);
         data.push({
             time: `${time.getHours().toString().padStart(2, '0')}:00`,
