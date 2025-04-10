@@ -77,7 +77,7 @@ const sensorsInfo = [
         airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * (35.1)).toFixed(1),
         humidity: Math.floor(Math.random() * 51 + 25),
-        isWorking: false,
+        isWorking: true,
         reason: getRandomReason(),
         time: getRandomTime(),
         dateTime: getRandomDate(false)
@@ -103,6 +103,16 @@ const sensorsInfo = [
         dateTime: getRandomDate(false)
     },
     {
+        name: "6",
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * (35.1)).toFixed(1),
+        humidity: Math.floor(Math.random() * 51 + 25),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    },
+    {
         name: "7",
         airQuality: Math.floor(Math.random() * 1101) + 400,
         temperature: (Math.random() * (35.1)).toFixed(1),
@@ -111,7 +121,17 @@ const sensorsInfo = [
         reason: getRandomReason(),
         time: getRandomTime(),
         dateTime: getRandomDate(false)
-    }
+    },
+    {
+        name: "8",
+        airQuality: Math.floor(Math.random() * 1101) + 400,
+        temperature: (Math.random() * (35.1)).toFixed(1),
+        humidity: Math.floor(Math.random() * 51 + 25),
+        isWorking: false,
+        reason: getRandomReason(),
+        time: getRandomTime(),
+        dateTime: getRandomDate(false)
+    },
 ];
 
 sensorsInfo.forEach(sensor => {
