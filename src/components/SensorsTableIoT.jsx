@@ -79,7 +79,7 @@ function SensorsTableIoT(){
                         <td className="cell">
                             <div className="icon-text">
                                 <Wind size={20} color="#52c41a"/>
-                                <span>{sensor.airQuality}%</span>
+                                <span>{sensor.airQuality} ppm</span>
                             </div>
                         </td>
                         <td className="cell">

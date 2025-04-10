@@ -10,10 +10,10 @@ const AttentionCabinets = () => {
         .map(sensor => {
             const issues = [];
             if (sensor.temperature < 15 || sensor.temperature >= 28) {
-                issues.push({ text: sensor.temperature < 15 ? "Маленька температура (меньше 15°C)" : "Висока температура (більше 28°C)", icon: <Thermometer size={18} color="#fa541c" /> });
+                issues.push({ text: sensor.temperature < 15 ? "Низька температура (меньше 15°C)" : "Висока температура (більше 28°C)", icon: <Thermometer size={18} color="#fa541c" /> });
             }
             if (sensor.humidity > 60 || sensor.humidity < 40) {
-                issues.push({text: sensor.humidity > 60 ? "Велика вологість (більше 60%)": "Маленька вологість (меньше 40%)", icon: <Droplet size={18} color="#1890ff" /> });
+                issues.push({text: sensor.humidity > 60 ? "Висока вологість (більше 60%)": "Низька вологість (меньше 40%)", icon: <Droplet size={18} color="#1890ff" /> });
             }
             if (sensor.airQuality >= 1000) {
                 issues.push({ text: "Погана якість повітря", icon: <Wind size={18} color="#52c41a" /> });

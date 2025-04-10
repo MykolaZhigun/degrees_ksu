@@ -32,105 +32,92 @@ const calculateOffTime = (sensorTime) => {
     return `${offHours} год ${offMinutes} хв`;
 };
 
-const getRandomDate = (isWorking) => {
+const getTodayDate = () => {
     const now = new Date();
-    let randomDate;
-
-    if (isWorking) {
-        const pastDays = Math.floor(Math.random() * 6) + 1;
-        randomDate = new Date(now.getTime() - pastDays * 24 * 60 * 60 * 1000);
-    } else {
-        do {
-            const year = now.getFullYear() - Math.floor(Math.random() * 1);
-            const month = Math.floor(Math.random() * 12);
-            const day = Math.floor(Math.random() * 28) + 1;
-            randomDate = new Date(year, month, day);
-        } while (randomDate >= now);
-    }
-
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return randomDate.toLocaleDateString('uk-UA', options);
+    return now.toLocaleDateString('uk-UA', options);
 };
+
 const sensorsInfo = [
     {
         name: "1",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: true,
         reason: "",
         time: getRandomTime(),
-        dateTime: getRandomDate(true)
+        dateTime: getTodayDate(true)
     },
     {
         name: "2",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: true,
         reason: "",
         time: getRandomTime(),
-        dateTime: getRandomDate(true)
+        dateTime: getTodayDate(true)
     },
     {
         name: "3",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: true,
         reason: getRandomReason(),
         time: getRandomTime(),
-        dateTime: getRandomDate(false)
+        dateTime: getTodayDate(false)
     },
     {
         name: "4",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (30 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: true,
         reason: "",
         time: getRandomTime(),
-        dateTime: getRandomDate(true)
+        dateTime: getTodayDate(true)
     },
     {
         name: "5",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: false,
         reason: getRandomReason(),
         time: getRandomTime(),
-        dateTime: getRandomDate(false)
+        dateTime: getTodayDate(false)
     },
     {
         name: "6",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: false,
         reason: getRandomReason(),
         time: getRandomTime(),
-        dateTime: getRandomDate(false)
+        dateTime: getTodayDate(false)
     },
     {
         name: "7",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: false,
         reason: getRandomReason(),
         time: getRandomTime(),
-        dateTime: getRandomDate(false)
+        dateTime: getTodayDate(false)
     },
     {
         name: "8",
         airQuality: Math.floor(Math.random() * 1101) + 400,
-        temperature: (Math.random() * (35.1)).toFixed(1),
-        humidity: Math.floor(Math.random() * 51 + 25),
+        temperature: (Math.random() * (32 - 13) + 13).toFixed(1),
+        humidity: Math.floor(Math.random() * (70 - 30 + 1)) + 30,
         isWorking: false,
         reason: getRandomReason(),
         time: getRandomTime(),
-        dateTime: getRandomDate(false)
+        dateTime: getTodayDate(false)
     },
 ];
 
